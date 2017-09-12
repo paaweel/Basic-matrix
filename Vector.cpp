@@ -22,7 +22,7 @@ Vector::Vector (const Vector & v) {
 }
 
 Vector::Vector (const int n) : size {n} {
-  const int value = 2;
+  const int value = 0;
 
   vec = new int [size];
 
@@ -42,4 +42,52 @@ Vector::Vector (const int n, const int value) : size {n} {
 
 Vector::~Vector() {
   delete vec;
+}
+
+int Vector::getSize() {
+  return size;
+}
+
+Vector Vector::operator+ (const Vector & v1) {
+  if (size != v1.size) {
+    std::cout << "Sizes do not match, aborting";
+    exit(1);
+  }
+  Vector sum (size);
+  for (int i = 0; i < size; ++i) {
+    sum.vec[i] = vec[i] + v1.vec[i];
+  }
+  return sum;
+}
+
+Vector Vector::operator- (const Vector & v1) {
+  if (size != v1.size) {
+    std::cout << "Sizes do not match, aborting";
+    exit(1);
+  }
+  Vector difference (size);
+  for (int i = 0; i < size; ++i) {
+    difference.vec[i] = vec[i] - v1.vec[i];
+  }
+  return difference;
+}
+
+Vector Vector::operator* (const int n) {
+  Vector result (size);
+  for (int i = 0; i < size; ++i) {
+    result.vec[i] *= n;
+  }
+  return result;
+}
+
+Vector Vector::operator* (const Vector & v1) {
+  if (size != v1.size) {
+    std::cout << "Sizes do not match, aborting";
+    exit(1);
+  }
+  Vector product (size);
+  for (int i = 0; i < size; ++i) {
+    product.vec[i] = vec[i] * v1.vec[i];
+  }
+  return product;
 }
