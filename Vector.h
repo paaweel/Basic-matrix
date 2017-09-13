@@ -33,8 +33,8 @@ public:
   bool operator!= (const Vector &v1);
 
   //in/out
-  friend std::ostream operator<< (std::ostream out, const Vector &v1);
-  friend std::istream operator>> (std::istream in, const Vector &v1);
+  friend std::ostream & operator<< (std::ostream &out, const Vector &v1);
+  friend std::istream & operator>> (std::istream &in, Vector &v1);
 
   //index
   int operator[] (const int i);                 //access i-th element
