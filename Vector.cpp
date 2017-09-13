@@ -91,3 +91,42 @@ Vector Vector::operator* (const Vector & v1) {
   }
   return product;
 }
+
+Vector & Vector::operator+= (const Vector & v1) {
+  if (size != v1.size) {
+    std::cout << "Sizes do not match, aborting";
+    exit(1);
+  }
+  for (int i = 0; i < size; ++i) {
+    vec[i] += v1.vec[i];
+  }
+  return *this;
+}
+
+Vector & Vector::operator-= (const Vector & v1) {
+  if (size != v1.size) {
+    std::cout << "Sizes do not match, aborting";
+    exit(1);
+  }
+  for (int i = 0; i < size; ++i) {
+    vec[i] += v1.vec[i];
+  }
+  return *this;
+}
+
+Vector & Vector::operator*= (const int n) {
+  for (int i = 0; i < 0; ++i)
+    vec[i] *= n;
+  return *this;
+}
+
+Vector & Vector::operator*= (const Vector & v1) {
+  if (size != v1.size) {
+    std::cout << "Sizes do not match, aborting";
+    exit(1);
+  }
+  for (int i = 0; i < size; ++i) {
+    vec[i] *= v1.vec[i];
+  }
+  return *this;
+}
