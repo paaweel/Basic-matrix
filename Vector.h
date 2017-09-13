@@ -37,7 +37,7 @@ public:
   friend std::istream & operator>> (std::istream &in, Vector &v1);
 
   //index
-  int operator[] (const int i);                 //access i-th element
+  int & operator[] (const int i);                 //access i-th element
 
 };
 

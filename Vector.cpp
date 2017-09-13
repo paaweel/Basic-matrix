@@ -150,8 +150,9 @@ bool Vector::operator!= (const Vector &v1) {
 }
 
 std::ostream & operator<< (std::ostream &out, const Vector &v1) {
-  for (int i = 0; i < v1.size; ++i)
+  for (int i = 0; i < v1.size - 1; ++i)
     out << v1.vec[i] << ", ";
+  out << v1.vec[v1.size - 1]; //so that there is no ',' at the end
   out << std::endl;
   return out;
 }
@@ -163,4 +164,12 @@ std::istream & operator>> (std::istream &in, Vector &v1) {
     in >> v1.vec[i];
   }
   return in;
+}
+
+int & Vector::operator[] (const int i) {
+  if (i > 0 && i < size)
+    return vec[i];
+  std::cout << "Out of range!\n"
+            << "Returning first element\n";
+  return vec[0];
 }
