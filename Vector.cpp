@@ -130,3 +130,20 @@ Vector & Vector::operator*= (const Vector & v1) {
   }
   return *this;
 }
+
+bool Vector::operator== (const Vector &v1) {
+  if (size != v1.size)
+    return false;
+  for (int i = 0; i < size; ++i)
+    if (vec[i] != v1.vec[i])
+      return false;
+  return true;
+}
+bool Vector::operator!= (const Vector &v1) {
+  if (size != v1.size)
+    return true;
+  for (int i = 0; i < size; ++i)
+    if (vec[i] != v1.vec[i])
+      return true;
+  return false;
+}
