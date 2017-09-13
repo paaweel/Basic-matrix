@@ -139,6 +139,7 @@ bool Vector::operator== (const Vector &v1) {
       return false;
   return true;
 }
+
 bool Vector::operator!= (const Vector &v1) {
   if (size != v1.size)
     return true;
@@ -146,4 +147,20 @@ bool Vector::operator!= (const Vector &v1) {
     if (vec[i] != v1.vec[i])
       return true;
   return false;
+}
+
+std::ostream & operator<< (std::ostream &out, const Vector &v1) {
+  for (int i = 0; i < v1.size; ++i)
+    out << v1.vec[i] << ", ";
+  out << std::endl;
+  return out;
+}
+
+std::istream & operator>> (std::istream &in, Vector &v1) {
+  std::cout << "Taking " << v1.size << " arguments\n";
+  for (int i = 0; i < v1.size; ++i) {
+    std::cout << i+1 << ". ";
+    in >> v1.vec[i];
+  }
+  return in;
 }
