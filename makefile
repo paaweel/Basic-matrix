@@ -13,4 +13,4 @@ Matrix.o: Vector.h Matrix.h Matrix.cpp
 	g++ -Wall -c Vector.h Matrix.h Matrix.cpp
 
 clean:
-	rm *.o .h.gch
+	rm *.o *.h.gch
