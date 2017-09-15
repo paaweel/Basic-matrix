@@ -1,7 +1,7 @@
 #makefile
 
 final: main.o Vector.o Matrix.o
-	g++ main.o Vector.o Matrix.h
+	g++ main.o Vector.o Matrix.o
 
 main.o: main.cpp Vector.h Matrix.h
 	g++ -Wall -c  main.cpp Vector.h Matrix.h
