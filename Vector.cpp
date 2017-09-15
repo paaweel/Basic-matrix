@@ -173,3 +173,18 @@ int & Vector::operator[] (const int i) {
             << "Returning first element\n";
   return vec[0];
 }
+
+Vector & Vector::operator= (const Vector & v1) {
+  if (size == v1.size) {
+    for (int i = 0; i < size; ++i)
+      vec[i] = v1.vec[i];
+    return *this;
+  }
+
+  delete vec;
+  size = v1.size;
+  vec = new int [size];
+  for (int i = 0; i < size; ++i)
+    vec[i] = v1.vec[i];
+  return *this;
+}

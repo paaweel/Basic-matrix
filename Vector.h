@@ -39,7 +39,9 @@ public:
   //index
   int & operator[] (const int i);                 //access i-th element
 
-};
+  //assignment
+  Vector & operator= (const Vector & v1);
 
+};
 
 #endif
