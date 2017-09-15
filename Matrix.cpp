@@ -39,3 +39,11 @@ std::istream & operator>> (std::istream &in, Matrix & m1) {
     in >> *m1.matrix[i];
   return in;
 }
+
+int Matrix::getRows () {
+  return rows;
+}
+
+int Matrix::getColumns () {
+  return columns;
+}
